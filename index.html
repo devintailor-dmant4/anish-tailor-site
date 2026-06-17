@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Anish Tailor — Chemical engineer and water treatment operator seeking to acquire and lead one great water treatment business." />
+  <title>Headwater Partners — Anish Tailor</title>
+
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #1a2e4a;
+      --navy-dark:  #111f33;
+      --teal:       #2a8f8f;
+      --teal-light: #3aafaf;
+      --white:      #ffffff;
+      --off-white:  #f7f8fa;
+      --light-gray: #e8ecf0;
+      --mid-gray:   #8a97a8;
+      --text:       #1a2e4a;
+      --text-light: #4a5a6a;
+
+      --font: -apple-system, "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --max-w: 720px;
+      --section-pad: 4rem 1.25rem;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      color: var(--text);
+      background: var(--white);
+      font-size: 1rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── Nav ───────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(26, 46, 74, 0.97);
+      backdrop-filter: blur(6px);
+      z-index: 100;
+      padding: 0 1.25rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      color: var(--white);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .nav-cta {
+      background: var(--teal);
+      color: var(--white);
+      padding: 0.45rem 1.1rem;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--teal-light); }
+
+    /* ─── Section Wrapper ───────────────────────────────────────── */
+    section { padding: var(--section-pad); }
+
+    .inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* ─── Section Labels ────────────────────────────────────────── */
+    .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ─── Hero ──────────────────────────────────────────────────── */
+    #hero {
+      background: var(--navy);
+      color: var(--white);
+      padding: 7rem 1.25rem 4rem;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* Photo placeholder */
+    .photo-placeholder {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 2px dashed rgba(255,255,255,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 0.5rem;
+      line-height: 1.3;
+    }
+
+    /* Replace .photo-placeholder with this once you have a photo:
+       <img src="anish.jpg" alt="Anish Tailor" class="hero-photo" />
+       .hero-photo { width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:2rem; }
+    */
+
+    .hero-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-headline {
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-headline em {
+      font-style: normal;
+      color: var(--teal-light);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 2.5rem;
+      max-width: 560px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--teal);
+      color: var(--white);
+      padding: 0.9rem 2rem;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.15s;
+      min-height: 48px;
+    }
+    .btn-primary:hover  { background: var(--teal-light); transform: translateY(-1px); }
+    .btn-primary:active { transform: translateY(0); }
+
+    .hero-scroll {
+      margin-top: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-scroll::before {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 32px;
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* ─── What I'm Looking For ──────────────────────────────────── */
+    #looking {
+      background: var(--off-white);
+      border-top: 1px solid var(--light-gray);
+    }
+
+    .section-title {
+      font-size: clamp(1.35rem, 4vw, 1.8rem);
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.75rem;
+      line-height: 1.25;
+    }
+
+    .criteria-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .criteria-list li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      font-size: 1rem;
+      color: var(--text-light);
+      line-height: 1.55;
+    }
+
+    .criteria-list li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      margin-top: 0.6rem;
+    }
+
+    .criteria-list strong {
+      color: var(--navy);
+    }
+
+    .note-line {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: var(--mid-gray);
+      font-style: italic;
+    }
+
+    /* ─── Why Me ────────────────────────────────────────────────── */
+    #why {
+      background: var(--white);
+    }
+
+    .pullquote {
+      border-left: 3px solid var(--teal);
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+      background: var(--off-white);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .pullquote p {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    .why-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 1.75rem;
+    }
+
+    .why-points li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      font-size: 1rem;
+      color: var(--text-light);
+    }
+
+    .why-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(42,143,143,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.1rem;
+    }
+
+    .why-icon svg { width: 16px; height: 16px; stroke: var(--teal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .why-points li div p:first-child {
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.2rem;
+    }
+
+    /* ─── About Me ──────────────────────────────────────────────── */
+    #about {
+      background: var(--navy-dark);
+      color: var(--white);
+    }
+
+    #about .eyebrow { color: var(--teal-light); }
+    #about .section-title { color: var(--white); }
+
+    .about-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .about-photo-placeholder {
+      width: 100%;
+      max-width: 340px;
+      height: 260px;
+      background: rgba(255,255,255,0.05);
+      border: 2px dashed rgba(255,255,255,0.15);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+    }
+
+    .about-text p {
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .employers {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+    }
+
+    .employer-tag {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 4px;
+      padding: 0.4rem 0.85rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.02em;
+    }
+
+    .references-line {
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.45);
+      font-style: italic;
+    }
+
+    /* ─── Numbers Band ──────────────────────────────────────────── */
+    #numbers {
+      background: var(--teal);
+      color: var(--white);
+      padding: 3.5rem 1.25rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 1.5rem;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .stat { text-align: center; }
+
+    .stat-number {
+      font-size: clamp(2rem, 7vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.35;
+    }
+
+    /* ─── Contact ───────────────────────────────────────────────── */
+    #contact {
+      background: var(--off-white);
+      border-top: 1px solid var(--light-gray);
+    }
+
+    .contact-intro {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      max-width: 560px;
+    }
+
+    .contact-invite {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--navy);
+      font-style: italic;
+      margin-bottom: 2.5rem;
+      line-height: 1.5;
+      border-left: 3px solid var(--teal);
+      padding-left: 1.25rem;
+    }
+
+    /* Direct contact links */
+    .contact-direct {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.9rem 1.1rem;
+      background: var(--white);
+      border: 1px solid var(--light-gray);
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--navy);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      min-height: 52px;
+    }
+    .contact-link:hover {
+      border-color: var(--teal);
+      box-shadow: 0 2px 8px rgba(42,143,143,0.12);
+    }
+
+    .contact-link svg { flex-shrink: 0; width: 20px; height: 20px; stroke: var(--teal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Divider */
+    .or-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      color: var(--mid-gray);
+      font-size: 0.85rem;
+    }
+    .or-divider::before,
+    .or-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--light-gray);
+    }
+
+    /* Contact form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+    }
+
+    input, textarea {
+      font-family: var(--font);
+      font-size: 1rem;
+      color: var(--text);
+      background: var(--white);
+      border: 1px solid var(--light-gray);
+      border-radius: 5px;
+      padding: 0.75rem 0.9rem;
+      width: 100%;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+      min-height: 48px;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(42,143,143,0.12);
+    }
+
+    textarea { min-height: 120px; resize: vertical; }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      border-radius: 5px;
+      padding: 0.95rem 1.5rem;
+      font-family: var(--font);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: background 0.2s;
+      min-height: 52px;
+    }
+    .btn-submit:hover { background: var(--teal); }
+
+    /* ─── Footer ────────────────────────────────────────────────── */
+    footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+      padding: 1.75rem 1.25rem;
+      font-size: 0.8rem;
+    }
+
+    /* ─── Desktop Breakpoints ───────────────────────────────────── */
+    @media (min-width: 640px) {
+      :root { --section-pad: 5rem 2rem; }
+
+      .form-row { flex-direction: row; }
+      .form-row .form-group { flex: 1; }
+
+      .stats-grid { grid-template-columns: repeat(4, 1fr); }
+
+      .about-grid {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 3rem;
+      }
+
+      .about-photo-placeholder {
+        flex-shrink: 0;
+        width: 220px;
+        height: 260px;
+      }
+
+      .hero-scroll { display: flex; }
+    }
+
+    @media (min-width: 900px) {
+      :root { --section-pad: 6rem 2rem; }
+
+      .hero-headline { font-size: 2.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Nav ─────────────────────────────────────────────────────── -->
+  <nav>
+    <span class="nav-brand">Headwater Partners</span>
+    <a href="#contact" class="nav-cta">Get in Touch</a>
+  </nav>
+
+
+  <!-- ── Section 1: Hero ─────────────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-inner">
+
+      <!-- Replace with <img src="anish.jpg" ...> once photo is ready -->
+      <div class="photo-placeholder">Anish photo<br>here</div>
+
+      <p class="hero-name">Anish Tailor &nbsp;·&nbsp; Headwater Partners</p>
+
+      <h1 class="hero-headline">
+        I'm looking to acquire and lead<br>
+        <em>one great water treatment business</em> —<br>
+        and continue what its owner built.
+      </h1>
+
+      <p class="hero-sub">
+        Chemical engineer. A decade in the field. Looking for the right
+        business — and the right owner — ready for the next chapter.
+      </p>
+
+      <a href="#contact" class="btn-primary">Let's Talk</a>
+
+      <div class="hero-scroll">Scroll to learn more</div>
+
+    </div>
+  </section>
+
+
+  <!-- ── Section 2: What I'm Looking For ─────────────────────────── -->
+  <section id="looking">
+    <div class="inner">
+      <p class="eyebrow">What I'm Looking For</p>
+      <h2 class="section-title">The kind of business I want to build on.</h2>
+
+      <ul class="criteria-list">
+        <li>
+          <div>
+            <strong>Water treatment and water industry businesses</strong> —
+            industrial water treatment, municipal services, water infrastructure,
+            or adjacent water-industry companies.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Owner-operated, established, and profitable</strong> —
+            built by someone over decades, with a strong team and loyal customers
+            already in place.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>A founder thinking about succession</strong> —
+            not a quick sale. Someone who wants their employees, customers,
+            and legacy in good hands.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Located anywhere in the United States</strong> —
+            geography is not a constraint. The right business is the right business.
+          </div>
+        </li>
+      </ul>
+
+      <p class="note-line">References available on request.</p>
+    </div>
+  </section>
+
+
+  <!-- ── Section 3: Why Me ────────────────────────────────────────── -->
+  <section id="why">
+    <div class="inner">
+      <p class="eyebrow">Why Me</p>
+      <h2 class="section-title">I'm not a financial buyer. I'm an operator.</h2>
+
+      <div class="pullquote">
+        <p>"I'm not a financial buyer looking for a flip. I'm an operator who spent
+        ten years in the field, and I intend to show up the same way as an owner."</p>
+      </div>
+
+      <ul class="why-points">
+
+        <li>
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <div>
+            <p>I'm a chemical engineer who worked in water treatment for ten years — in the plants, solving the actual problems. I understand this work because I've done this work.</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <p>I worked at Nalco, SUEZ, and Solenis — three of the largest water treatment companies in the world. I know this industry inside and out, and I know the people in it.</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <p>I'm committed to the people and the business — not a quick exit. The employees, the customers, and the reputation the owner built are what I'm here to continue.</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div>
+            <p>I can speak your language — the chemistry, the equipment, the customer relationships, the operational realities. There won't be a learning curve on day one.</p>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ── Section 4: About Me ──────────────────────────────────────── -->
+  <section id="about">
+    <div class="inner">
+      <p class="eyebrow">About Anish</p>
+      <h2 class="section-title">A decade in water treatment. Now building what's next.</h2>
+
+      <div class="about-grid">
+
+        <!-- Replace with real photo once available -->
+        <div class="about-photo-placeholder">Anish photo<br>here</div>
+
+        <div class="about-text">
+          <p>
+            I'm a chemical engineer. I spent the last decade working directly in
+            industrial water treatment — not in a boardroom, but in the field,
+            alongside the technicians and operators who keep these systems running.
+          </p>
+          <p>
+            My career took me across the country — from Houston refineries to
+            California manufacturers to industrial facilities in the Pacific Northwest —
+            working with the full range of water treatment challenges that plant operators
+            face every day.
+          </p>
+          <p>
+            Now I'm focused on finding the right company: a well-run water treatment
+            business whose owner has built something real, and wants to see it continue
+            under someone who understands and respects what they've built.
+          </p>
+
+          <div class="employers">
+            <span class="employer-tag">Nalco / Ecolab</span>
+            <span class="employer-tag">SUEZ Water Technologies</span>
+            <span class="employer-tag">Solenis</span>
+          </div>
+
+          <p class="references-line">References available on request.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── Section 5: By the Numbers ───────────────────────────────── -->
+  <section id="numbers">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Years in industrial water treatment</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Of the world's largest water treatment companies</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">B.S.</div>
+        <div class="stat-label">Chemical Engineering — University of Illinois</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">150+</div>
+        <div class="stat-label">Industrial relationships across the Western US</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── Section 6: Contact ───────────────────────────────────────── -->
+  <section id="contact">
+    <div class="inner">
+      <p class="eyebrow">Get in Touch</p>
+      <h2 class="section-title">Let's have a conversation.</h2>
+
+      <p class="contact-invite">
+        "If you know a business owner thinking about their next chapter — or if
+        that's you — I'd genuinely welcome the conversation."
+      </p>
+
+      <p class="contact-intro">
+        Reach out however is easiest. A 20-minute call is all it takes to see
+        if there's something worth exploring.
+      </p>
+
+      <!-- Direct contact — tap-to-call and tap-to-email for mobile -->
+      <div class="contact-direct">
+
+        <a href="tel:[PHONE]" class="contact-link">
+          <svg viewBox="0 0 24 24">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          [PHONE]
+        </a>
+
+        <a href="mailto:[EMAIL]" class="contact-link">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          [EMAIL]
+        </a>
+
+      </div>
+
+      <div class="or-divider">or send a message below</div>
+
+      <!-- Contact form — wire to Formspree or Netlify Forms when deploying -->
+      <form
+        class="contact-form"
+        action="https://formspree.io/f/[FORMSPREE_ID]"
+        method="POST"
+      >
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="John Smith" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone (optional)</label>
+          <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Tell me a little about your business or how we might connect..."
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Send Message</button>
+      </form>
+
+    </div>
+  </section>
+
+
+  <!-- ── Footer ───────────────────────────────────────────────────── -->
+  <footer>
+    <p>&copy; 2025 Headwater Partners &nbsp;·&nbsp; Anish Tailor</p>
+  </footer>
+
+</body>
+</html>
