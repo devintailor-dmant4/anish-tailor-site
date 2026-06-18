@@ -240,37 +240,14 @@
       gap: 2.5rem;
     }
 
-    /* Facility image — replace div with <img src="images/water-facility.jpg"> */
     .facility-image {
       width: 100%;
       aspect-ratio: 4 / 3;
       border-radius: 8px;
       overflow: hidden;
       position: relative;
-
-      /*
-        Replace when image is ready:
-        background: url('images/water-facility.jpg') center / cover no-repeat;
-      */
-      background:
-        linear-gradient(160deg, var(--navy) 0%, #1e4060 50%, rgba(42,143,143,0.6) 100%);
       flex-shrink: 0;
     }
-
-    /* Industrial pipe SVG overlay — visual placeholder until photo arrives */
-    .facility-image::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(42,143,143,0.08) 2px, transparent 2px),
-        linear-gradient(90deg, rgba(42,143,143,0.08) 2px, transparent 2px),
-        linear-gradient(rgba(42,143,143,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(42,143,143,0.04) 1px, transparent 1px);
-      background-size: 80px 80px, 80px 80px, 20px 20px, 20px 20px;
-    }
-
-    .facility-image::after { content: none; }
 
     .facility-image img {
       width: 100%;
@@ -897,14 +874,15 @@
 
       .split {
         flex-direction: row;
-        align-items: flex-start;
-        gap: 3.5rem;
+        align-items: stretch;
+        gap: 2.5rem;
       }
 
       .facility-image {
-        width: 300px;
+        width: 340px;
         flex-shrink: 0;
-        aspect-ratio: 3 / 4;
+        aspect-ratio: unset;
+        min-height: 400px;
       }
 
       .why-split {
