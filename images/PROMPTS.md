@@ -95,18 +95,131 @@ Capable, grounded, ready.
 
 ---
 
+## PROCESS SECTION IMAGES (5 steps)
+
+All five images share the same tone: **warm, human, and real — not stock-photo stiff.**
+Aspect ratio: **16:9 landscape**, 1200×675px minimum.
+Color palette: The site is dark navy + teal. Images should have **warm, natural tones**
+so they contrast well against the dark section background.
+
+---
+
+## 6. `step-01-conversation.jpg`
+**Step 1 — "A simple 20-minute conversation"**
+
+**What it must say without words:**
+Low stakes. Easy. Two people who are genuinely interested in each other.
+This doesn't feel like a business meeting — it feels like a conversation.
+
+**AI Prompt:**
+> Two professionals having a relaxed, natural conversation over coffee at a bright,
+> airy café or office. One is a mid-30s South Asian man in business casual. The other
+> is a man in his 60s, gray hair, business casual. Both are engaged, leaning slightly
+> forward, one is gesturing as they talk. Natural window light. Warm tones. No papers
+> or laptops visible — this is a listening conversation. Photorealistic, candid feel.
+> --ar 16:9
+
+**Stock search:** "two professionals casual conversation coffee" — filter for warm,
+natural light; avoid formal boardroom settings
+
+---
+
+## 7. `step-02-site-visit.jpg`
+**Step 2 — "Anish visits your operation — in person"**
+
+**What it must say without words:**
+The buyer showed up. He's not reading a report in an office — he's here,
+in the plant, paying attention. The owner is proud to show what they built.
+
+**AI Prompt:**
+> Two professionals walking through an industrial water treatment facility.
+> A mid-30s South Asian man in business casual is listening carefully while
+> a man in his 60s points out equipment and infrastructure — large pipes, tanks,
+> control systems visible in the background. The older man is clearly in his element,
+> proud and knowledgeable. Natural industrial lighting. Photorealistic, candid.
+> --ar 16:9
+
+**Stock search:** "business owner showing facility to buyer" or "industrial plant tour
+two professionals" — look for images that feel like a genuine walkthrough, not a posed handshake
+
+---
+
+## 8. `step-03-offer.jpg`
+**Step 3 — "A fair, straightforward offer"**
+
+**What it must say without words:**
+Something real is being agreed to. It feels fair and clear — not adversarial.
+Both sides are reviewing the same document together.
+
+**AI Prompt:**
+> Two professionals seated at a simple table reviewing a document together.
+> A mid-30s South Asian man and a man in his 60s, both looking at the same
+> papers on the table. One points to a specific section. The expression is
+> calm and engaged — not tense negotiation, but collaborative review.
+> Clean bright office or conference room. Photorealistic, natural light.
+> --ar 16:9
+
+**Stock search:** "two professionals reviewing contract together" — avoid images
+showing pens hovering over signature lines (too transactional). Look for collaborative tone.
+
+---
+
+## 9. `step-04-transition.jpg`
+**Step 4 — "A transition you design"**
+
+**What it must say without words:**
+Knowledge being passed from one person to another. Trust.
+The older person is still in control — they're teaching, not being pushed out.
+
+**AI Prompt:**
+> Two professionals standing side by side at a control panel or workstation
+> in an industrial setting. An older man (60s, gray hair) is explaining something
+> to a younger man (30s, South Asian), pointing at equipment. The younger man
+> listens attentively, taking a note. The dynamic is mentor and successor, not
+> employer and employee. Warm industrial lighting. Photorealistic.
+> --ar 16:9
+
+**Stock search:** "business owner mentoring successor" or "knowledge transfer
+industrial facility" — the key is the older person being empowered, not replaced
+
+---
+
+## 10. `step-05-ownership.jpg`
+**Step 5 — "You leave knowing it's in good hands"**
+
+**What it must say without words:**
+New ownership. Same operation. Someone capable is standing here now,
+ready to carry it forward. The future is solid.
+
+**AI Prompt:**
+> A mid-30s South Asian man in business casual standing confidently at the
+> entrance or in front of an industrial water treatment facility. He looks
+> grounded, calm, and ready — not triumphant, but settled. Early morning light,
+> slight golden hour warmth. The facility behind him looks well-maintained and real.
+> Photorealistic, cinematic composition. --ar 16:9
+
+**Stock search:** "business owner standing outside industrial facility" —
+look for images that feel like day-one ownership, not a corporate announcement
+
+---
+
 ## Folder Structure When Complete
 
 ```
 anish-tailor-site/
   index.html
   images/
-    hero-bg.jpg         ← AI generated or stock
-    water-facility.jpg  ← AI generated or stock
-    operator-field.jpg  ← AI or real Anish photo (replace ASAP)
-    anish-headshot.jpg  ← Must be real photo of Anish
-    anish-about.jpg     ← Must be real photo of Anish
-    PROMPTS.md          ← This file
+    hero-bg.jpg              ← AI or stock — aerial water facility
+    water-facility.jpg       ← AI or stock — ground-level plant
+    operator-field.jpg       ← AI or real Anish photo (replace ASAP)
+    anish-headshot.jpg       ← Must be real photo of Anish
+    anish-about.jpg          ← Must be real photo of Anish
+    step-01-conversation.jpg ← AI or stock — relaxed first call
+    step-02-site-visit.jpg   ← AI or stock — touring the facility
+    step-03-offer.jpg        ← AI or stock — reviewing terms together
+    step-04-transition.jpg   ← AI or stock — mentor/successor
+    step-05-ownership.jpg    ← AI or stock — new owner at facility
+    PROMPTS.md               ← This file
 ```
 
 ---
