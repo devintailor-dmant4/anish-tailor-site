@@ -144,64 +144,65 @@
       margin-bottom: 2rem;
     }
 
-    /* Desktop right-side portrait */
-    .hero-portrait-wrap {
+    /* Desktop right-side stat cards */
+    .hero-stats {
       width: 100%;
       height: 100%;
-      position: relative;
-    }
-    .hero-portrait-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-    }
-    .hero-portrait-wrap::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(to right, rgba(13,24,37,0.55) 0%, transparent 35%),
-        linear-gradient(to top,   rgba(13,24,37,0.5)  0%, transparent 45%);
-      z-index: 1;
-      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 2rem 2rem 1rem;
     }
 
-    .hero-chips {
-      position: absolute;
-      bottom: 2rem;
-      left: 1.5rem;
-      right: 1.5rem;
-      z-index: 2;
+    .hstat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      width: 100%;
+      max-width: 360px;
+    }
+
+    .hstat {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 1.4rem 1.25rem;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
       gap: 0.5rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
-    .hchip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: rgba(10,20,33,0.72);
-      border: 1px solid rgba(255,255,255,0.12);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: 6px;
-      padding: 0.55rem 0.9rem;
-      font-size: 0.8rem;
-      font-weight: 600;
+    .hstat-icon svg {
+      width: 20px; height: 20px;
+      stroke: var(--teal-light);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .hstat-num {
+      font-size: 2.2rem;
+      font-weight: 900;
       color: var(--white);
-      letter-spacing: 0.01em;
+      line-height: 1;
+      letter-spacing: -0.03em;
     }
-    .hchip-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--teal-light);
-      flex-shrink: 0;
+
+    .hstat-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.45;
     }
-    .hchip.accent { border-color: rgba(61,184,184,0.4); color: var(--teal-light); }
+
+    /* Firm-backed card — teal accent */
+    .hstat.accent {
+      border-color: rgba(61,184,184,0.3);
+      background: rgba(42,143,143,0.1);
+    }
+    .hstat.accent .hstat-num { color: var(--teal-light); font-size: 1.1rem; letter-spacing: 0; }
 
     .hero-kicker {
       font-size: 0.78rem;
@@ -813,27 +814,43 @@
       </div>
     </div>
 
-    <!-- Right: portrait + credential chips (desktop only) -->
+    <!-- Right: credential stat cards (desktop only) -->
     <div class="hero-right">
-      <div class="hero-portrait-wrap">
-        <img src="images/anish-headshot.jpg" alt="Anish Tailor" />
-        <div class="hero-chips">
-          <div class="hchip">
-            <span class="hchip-dot"></span>
-            10+ years in water treatment
+      <div class="hero-stats">
+        <div class="hstat-grid">
+
+          <div class="hstat">
+            <div class="hstat-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="hstat-num">10+</div>
+            <div class="hstat-label">Years in industrial water treatment</div>
           </div>
-          <div class="hchip">
-            <span class="hchip-dot"></span>
-            Nalco &nbsp;·&nbsp; SUEZ &nbsp;·&nbsp; Solenis
+
+          <div class="hstat">
+            <div class="hstat-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div class="hstat-num">3</div>
+            <div class="hstat-label">World's largest water treatment firms</div>
           </div>
-          <div class="hchip">
-            <span class="hchip-dot"></span>
-            Chemical Engineer — University of Illinois
+
+          <div class="hstat">
+            <div class="hstat-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <div class="hstat-num">B.S.</div>
+            <div class="hstat-label">Chemical Engineering, U of Illinois</div>
           </div>
-          <div class="hchip accent">
-            <span class="hchip-dot"></span>
-            Firm-backed &mdash; ready now
+
+          <div class="hstat accent">
+            <div class="hstat-icon">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="hstat-num">Firm&#8209;backed</div>
+            <div class="hstat-label">Committed capital — ready to close</div>
           </div>
+
         </div>
       </div>
     </div>
