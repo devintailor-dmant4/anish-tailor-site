@@ -3,28 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Anish Tailor — Chemical engineer and water treatment operator seeking to acquire and lead one great water treatment business." />
+  <meta name="description" content="Anish Tailor — Chemical engineer with a decade in industrial water treatment, seeking to acquire and lead one great water treatment business." />
   <title>Headwater Partners — Anish Tailor</title>
 
   <style>
-    /* ─── Reset & Base ─────────────────────────────────────────── */
+    /* ─── Reset ─────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:       #1a2e4a;
-      --navy-dark:  #111f33;
-      --teal:       #2a8f8f;
-      --teal-light: #3aafaf;
-      --white:      #ffffff;
-      --off-white:  #f7f8fa;
-      --light-gray: #e8ecf0;
-      --mid-gray:   #8a97a8;
-      --text:       #1a2e4a;
-      --text-light: #4a5a6a;
+      --navy:        #1a2e4a;
+      --navy-dark:   #111f33;
+      --navy-deeper: #0d1825;
+      --teal:        #2a8f8f;
+      --teal-light:  #3db8b8;
+      --teal-pale:   rgba(42,143,143,0.12);
+      --white:       #ffffff;
+      --off-white:   #f6f8fb;
+      --rule:        #dde3ea;
+      --mid-gray:    #8a97a8;
+      --text:        #1a2e4a;
+      --text-muted:  #4e6070;
 
       --font: -apple-system, "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      --max-w: 720px;
-      --section-pad: 4rem 1.25rem;
+      --max:  740px;
+      --pad:  clamp(1.25rem, 5vw, 2rem);
     }
 
     html { scroll-behavior: smooth; }
@@ -38,116 +40,148 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    /* ─── Utility ───────────────────────────────────────────────── */
+    .inner { max-width: var(--max); margin: 0 auto; width: 100%; }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.9rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 4.5vw, 2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--navy);
+      margin-bottom: 1.75rem;
+    }
+
+    .section-title.light { color: var(--white); }
 
     /* ─── Nav ───────────────────────────────────────────────────── */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgba(26, 46, 74, 0.97);
-      backdrop-filter: blur(6px);
-      z-index: 100;
-      padding: 0 1.25rem;
-      height: 56px;
+      inset: 0 0 auto 0;
+      height: 58px;
+      background: rgba(13,24,37,0.96);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 0 var(--pad);
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
     .nav-brand {
       color: var(--white);
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
+
+    .nav-brand span { color: var(--teal-light); }
 
     .nav-cta {
       background: var(--teal);
       color: var(--white);
-      padding: 0.45rem 1.1rem;
+      padding: 0.5rem 1.25rem;
       border-radius: 4px;
       font-size: 0.875rem;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.02em;
       transition: background 0.2s;
+      min-height: 38px;
+      display: flex;
+      align-items: center;
     }
     .nav-cta:hover { background: var(--teal-light); }
 
-    /* ─── Section Wrapper ───────────────────────────────────────── */
-    section { padding: var(--section-pad); }
-
-    .inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    /* ─── Section Labels ────────────────────────────────────────── */
-    .eyebrow {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 0.75rem;
-    }
-
-    /* ─── Hero ──────────────────────────────────────────────────── */
+    /* ─── HERO ──────────────────────────────────────────────────── */
     #hero {
-      background: var(--navy);
-      color: var(--white);
-      padding: 7rem 1.25rem 4rem;
       min-height: 100svh;
       display: flex;
       align-items: center;
+      padding: 7rem var(--pad) 5rem;
+      position: relative;
+      overflow: hidden;
+
+      /*
+        When hero-bg.jpg is ready, replace the background below with:
+        background:
+          linear-gradient(135deg, rgba(13,24,37,0.88) 0%, rgba(26,46,74,0.82) 100%),
+          url('images/hero-bg.jpg') center / cover no-repeat;
+      */
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(42,143,143,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 80% at 10% 80%, rgba(42,143,143,0.08) 0%, transparent 50%),
+        linear-gradient(160deg, var(--navy-deeper) 0%, var(--navy) 60%, #1e3a5a 100%);
     }
 
-    .hero-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      width: 100%;
+    /* Subtle grid texture — evokes industrial precision */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(42,143,143,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(42,143,143,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
     }
 
-    /* Photo placeholder */
-    .photo-placeholder {
-      width: 120px;
-      height: 120px;
+    .hero-inner { position: relative; z-index: 1; max-width: var(--max); margin: 0 auto; width: 100%; }
+
+    /* Headshot — swap div for <img> once photo is ready */
+    .hero-photo {
+      width: 96px;
+      height: 96px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.08);
-      border: 2px dashed rgba(255,255,255,0.25);
+      overflow: hidden;
+      border: 2px solid rgba(61,184,184,0.4);
+      box-shadow: 0 0 0 6px rgba(42,143,143,0.1);
+      margin-bottom: 2rem;
+      background: rgba(255,255,255,0.06);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 2rem;
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.4);
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.3);
       text-align: center;
-      padding: 0.5rem;
       line-height: 1.3;
     }
 
-    /* Replace .photo-placeholder with this once you have a photo:
-       <img src="anish.jpg" alt="Anish Tailor" class="hero-photo" />
-       .hero-photo { width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:2rem; }
+    /* Once you have anish-headshot.jpg, replace the div above with:
+       <img src="images/anish-headshot.jpg" alt="Anish Tailor" class="hero-photo" />
+       .hero-photo { width:96px; height:96px; border-radius:50%; object-fit:cover; ... }
     */
 
-    .hero-name {
-      font-size: 0.85rem;
+    .hero-kicker {
+      font-size: 0.78rem;
       font-weight: 600;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--teal-light);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.1rem;
     }
 
     .hero-headline {
-      font-size: clamp(1.6rem, 5vw, 2.4rem);
-      font-weight: 700;
-      line-height: 1.25;
+      font-size: clamp(1.75rem, 6vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.18;
       color: var(--white);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.4rem;
+      max-width: 620px;
     }
 
     .hero-headline em {
@@ -157,13 +191,16 @@
 
     .hero-sub {
       font-size: 1.05rem;
-      color: rgba(255,255,255,0.72);
+      color: rgba(255,255,255,0.65);
+      max-width: 500px;
       margin-bottom: 2.5rem;
-      max-width: 560px;
+      line-height: 1.7;
     }
 
-    .btn-primary {
-      display: inline-block;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       background: var(--teal);
       color: var(--white);
       padding: 0.9rem 2rem;
@@ -172,347 +209,474 @@
       font-weight: 700;
       letter-spacing: 0.02em;
       transition: background 0.2s, transform 0.15s;
-      min-height: 48px;
+      min-height: 52px;
     }
-    .btn-primary:hover  { background: var(--teal-light); transform: translateY(-1px); }
-    .btn-primary:active { transform: translateY(0); }
+    .btn:hover  { background: var(--teal-light); transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 
     .hero-scroll {
-      margin-top: 3rem;
+      margin-top: 3.5rem;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      color: rgba(255,255,255,0.35);
-      font-size: 0.8rem;
-      letter-spacing: 0.05em;
+      gap: 0.75rem;
+      color: rgba(255,255,255,0.28);
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
-
     .hero-scroll::before {
       content: '';
       display: block;
       width: 1px;
-      height: 32px;
-      background: rgba(255,255,255,0.2);
-    }
-
-    /* ─── What I'm Looking For ──────────────────────────────────── */
-    #looking {
-      background: var(--off-white);
-      border-top: 1px solid var(--light-gray);
-    }
-
-    .section-title {
-      font-size: clamp(1.35rem, 4vw, 1.8rem);
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 1.75rem;
-      line-height: 1.25;
-    }
-
-    .criteria-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .criteria-list li {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      font-size: 1rem;
-      color: var(--text-light);
-      line-height: 1.55;
-    }
-
-    .criteria-list li::before {
-      content: '';
-      flex-shrink: 0;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--teal);
-      margin-top: 0.6rem;
-    }
-
-    .criteria-list strong {
-      color: var(--navy);
-    }
-
-    .note-line {
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: var(--mid-gray);
-      font-style: italic;
-    }
-
-    /* ─── Why Me ────────────────────────────────────────────────── */
-    #why {
-      background: var(--white);
-    }
-
-    .pullquote {
-      border-left: 3px solid var(--teal);
-      padding: 1.25rem 1.5rem;
-      margin: 2rem 0;
-      background: var(--off-white);
-      border-radius: 0 4px 4px 0;
-    }
-
-    .pullquote p {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--navy);
-      line-height: 1.5;
-      font-style: italic;
-    }
-
-    .why-points {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      margin-top: 1.75rem;
-    }
-
-    .why-points li {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      font-size: 1rem;
-      color: var(--text-light);
-    }
-
-    .why-icon {
-      flex-shrink: 0;
-      width: 36px;
       height: 36px;
-      border-radius: 50%;
-      background: rgba(42,143,143,0.1);
+      background: rgba(255,255,255,0.15);
+    }
+
+    /* ─── SECTION 2 — THE BUSINESS ──────────────────────────────── */
+    #business {
+      background: var(--off-white);
+      border-top: 1px solid var(--rule);
+      padding: clamp(3.5rem, 8vw, 6rem) var(--pad);
+    }
+
+    .split {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    /* Facility image — replace div with <img src="images/water-facility.jpg"> */
+    .facility-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+
+      /*
+        Replace when image is ready:
+        background: url('images/water-facility.jpg') center / cover no-repeat;
+      */
+      background:
+        linear-gradient(160deg, var(--navy) 0%, #1e4060 50%, rgba(42,143,143,0.6) 100%);
+      flex-shrink: 0;
+    }
+
+    /* Industrial pipe SVG overlay — visual placeholder until photo arrives */
+    .facility-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(42,143,143,0.08) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(42,143,143,0.08) 2px, transparent 2px),
+        linear-gradient(rgba(42,143,143,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(42,143,143,0.04) 1px, transparent 1px);
+      background-size: 80px 80px, 80px 80px, 20px 20px, 20px 20px;
+    }
+
+    .facility-image::after {
+      content: 'Water facility photo';
+      position: absolute;
+      inset: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 0.1rem;
+      color: rgba(255,255,255,0.25);
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
     }
 
-    .why-icon svg { width: 16px; height: 16px; stroke: var(--teal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .facility-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+    }
 
-    .why-points li div p:first-child {
-      font-weight: 600;
+    .business-content { flex: 1; }
+
+    .criteria {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .criteria li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1rem 1.1rem;
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      font-size: 0.975rem;
+      color: var(--text-muted);
+      transition: border-color 0.2s;
+    }
+    .criteria li:hover { border-color: var(--teal); }
+
+    .criteria li strong { display: block; color: var(--navy); font-size: 0.9rem; margin-bottom: 0.15rem; }
+
+    .criteria-icon {
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      background: var(--teal-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .criteria-icon svg { width: 15px; height: 15px; stroke: var(--teal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ─── SECTION 3 — WHY ME ────────────────────────────────────── */
+    #why {
+      background: var(--white);
+      padding: clamp(3.5rem, 8vw, 6rem) var(--pad);
+      border-top: 1px solid var(--rule);
+    }
+
+    .why-split {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .why-content { flex: 1; order: 2; }
+
+    /* Field image */
+    .field-image {
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 3 / 4;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      order: 1;
+      align-self: flex-start;
+      flex-shrink: 0;
+
+      /*
+        Replace when image is ready:
+        background: url('images/operator-field.jpg') center / cover no-repeat;
+      */
+      background: linear-gradient(170deg, #1e4060 0%, var(--navy-deeper) 100%);
+    }
+
+    .field-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 60% 30%, rgba(42,143,143,0.25) 0%, transparent 70%);
+    }
+
+    .field-image::after {
+      content: 'Field / operator photo\A(ideally a real photo of Anish)';
+      white-space: pre;
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.25);
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      text-align: center;
+      padding: 1rem;
+      line-height: 1.5;
+    }
+
+    .field-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+    }
+
+    /* The big quote */
+    .big-quote {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .big-quote::before {
+      content: '\201C';
+      position: absolute;
+      top: -1.5rem;
+      left: -0.5rem;
+      font-size: 6rem;
+      line-height: 1;
+      color: var(--teal);
+      opacity: 0.18;
+      font-family: Georgia, serif;
+      pointer-events: none;
+    }
+
+    .big-quote p {
+      font-size: clamp(1.1rem, 3.5vw, 1.35rem);
+      font-weight: 700;
       color: var(--navy);
-      margin-bottom: 0.2rem;
+      line-height: 1.45;
+      font-style: italic;
+      padding: 1.5rem 1.5rem 1.5rem 1.75rem;
+      border-left: 4px solid var(--teal);
+      background: var(--off-white);
+      border-radius: 0 6px 6px 0;
     }
 
-    /* ─── About Me ──────────────────────────────────────────────── */
+    .credentials {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .credentials li {
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+      font-size: 0.975rem;
+      color: var(--text-muted);
+    }
+
+    .credentials li strong { color: var(--navy); }
+
+    .check {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.18rem;
+    }
+    .check svg { width: 11px; height: 11px; stroke: white; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ─── SECTION 4 — ABOUT ─────────────────────────────────────── */
     #about {
       background: var(--navy-dark);
-      color: var(--white);
+      padding: clamp(3.5rem, 8vw, 6rem) var(--pad);
+      border-top: 1px solid rgba(255,255,255,0.06);
     }
 
     #about .eyebrow { color: var(--teal-light); }
-    #about .section-title { color: var(--white); }
 
-    .about-grid {
+    .about-split {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
-      margin-top: 2rem;
+      gap: 2.5rem;
+      margin-top: 0.5rem;
     }
 
-    .about-photo-placeholder {
+    /* Portrait — replace with <img src="images/anish-about.jpg"> */
+    .about-portrait {
       width: 100%;
-      max-width: 340px;
-      height: 260px;
-      background: rgba(255,255,255,0.05);
-      border: 2px dashed rgba(255,255,255,0.15);
-      border-radius: 6px;
+      max-width: 280px;
+      aspect-ratio: 3 / 4;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.3);
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.2);
       text-align: center;
+      line-height: 1.5;
+    }
+
+    .about-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
     }
 
     .about-text p {
-      color: rgba(255,255,255,0.75);
-      margin-bottom: 1rem;
+      color: rgba(255,255,255,0.68);
       font-size: 1rem;
+      margin-bottom: 1.1rem;
+      line-height: 1.7;
     }
+
+    .about-text p:last-of-type { margin-bottom: 0; }
 
     .employers {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 1.5rem;
+      gap: 0.5rem;
+      margin-top: 1.75rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
     }
 
     .employer-tag {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
+      padding: 0.4rem 0.9rem;
+      background: rgba(42,143,143,0.12);
+      border: 1px solid rgba(42,143,143,0.25);
       border-radius: 4px;
-      padding: 0.4rem 0.85rem;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 600;
-      color: rgba(255,255,255,0.8);
+      color: var(--teal-light);
       letter-spacing: 0.02em;
     }
 
-    .references-line {
-      margin-top: 1.75rem;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.45);
+    .ref-note {
+      margin-top: 1.25rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.3);
       font-style: italic;
     }
 
-    /* ─── Numbers Band ──────────────────────────────────────────── */
+    /* ─── SECTION 5 — NUMBERS ───────────────────────────────────── */
     #numbers {
       background: var(--teal);
-      color: var(--white);
-      padding: 3.5rem 1.25rem;
+      padding: clamp(3rem, 7vw, 5rem) var(--pad);
     }
 
-    .stats-grid {
+    .stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem 1.5rem;
-      max-width: var(--max-w);
+      gap: 2.5rem 2rem;
+      max-width: var(--max);
       margin: 0 auto;
     }
 
-    .stat { text-align: center; }
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.75rem;
+    }
+
+    .stat-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .stat-icon svg { width: 20px; height: 20px; stroke: white; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
     .stat-number {
       font-size: clamp(2rem, 7vw, 2.8rem);
-      font-weight: 800;
-      line-height: 1;
+      font-weight: 900;
       color: var(--white);
-      margin-bottom: 0.4rem;
+      line-height: 1;
+      letter-spacing: -0.02em;
     }
 
     .stat-label {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: rgba(255,255,255,0.8);
-      line-height: 1.35;
+      line-height: 1.4;
+      max-width: 130px;
     }
 
-    /* ─── Contact ───────────────────────────────────────────────── */
+    /* ─── SECTION 6 — CONTACT ───────────────────────────────────── */
     #contact {
-      background: var(--off-white);
-      border-top: 1px solid var(--light-gray);
-    }
-
-    .contact-intro {
-      font-size: 1.05rem;
-      color: var(--text-light);
-      margin-bottom: 2rem;
-      max-width: 560px;
+      background: var(--white);
+      padding: clamp(3.5rem, 8vw, 6rem) var(--pad);
+      border-top: 1px solid var(--rule);
     }
 
     .contact-invite {
-      font-size: 1.1rem;
+      font-size: clamp(1.05rem, 3vw, 1.2rem);
+      font-style: italic;
       font-weight: 600;
       color: var(--navy);
-      font-style: italic;
-      margin-bottom: 2.5rem;
-      line-height: 1.5;
-      border-left: 3px solid var(--teal);
-      padding-left: 1.25rem;
+      line-height: 1.55;
+      padding: 1.25rem 1.5rem;
+      border-left: 4px solid var(--teal);
+      background: var(--off-white);
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 2rem;
     }
 
-    /* Direct contact links */
-    .contact-direct {
+    .contact-note {
+      font-size: 0.975rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .direct-links {
       display: flex;
       flex-direction: column;
-      gap: 0.85rem;
-      margin-bottom: 2.5rem;
+      gap: 0.75rem;
+      margin-bottom: 2.25rem;
     }
 
-    .contact-link {
+    .direct-link {
       display: flex;
       align-items: center;
-      gap: 0.85rem;
-      padding: 0.9rem 1.1rem;
-      background: var(--white);
-      border: 1px solid var(--light-gray);
+      gap: 0.9rem;
+      padding: 1rem 1.1rem;
+      border: 1.5px solid var(--rule);
       border-radius: 6px;
-      font-size: 1rem;
+      font-size: 0.975rem;
       font-weight: 500;
       color: var(--navy);
-      transition: border-color 0.2s, box-shadow 0.2s;
-      min-height: 52px;
+      background: var(--white);
+      transition: border-color 0.2s, background 0.2s;
+      min-height: 54px;
     }
-    .contact-link:hover {
-      border-color: var(--teal);
-      box-shadow: 0 2px 8px rgba(42,143,143,0.12);
-    }
+    .direct-link:hover { border-color: var(--teal); background: var(--off-white); }
 
-    .contact-link svg { flex-shrink: 0; width: 20px; height: 20px; stroke: var(--teal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .direct-link svg { flex-shrink: 0; width: 19px; height: 19px; stroke: var(--teal); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-    /* Divider */
-    .or-divider {
+    .divider {
       display: flex;
       align-items: center;
       gap: 1rem;
-      margin: 2rem 0;
       color: var(--mid-gray);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 2rem;
     }
-    .or-divider::before,
-    .or-divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--light-gray);
-    }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
 
-    /* Contact form */
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+    /* Form */
+    .form { display: flex; flex-direction: column; gap: 1rem; }
 
-    .form-row {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+    .form-row { display: flex; flex-direction: column; gap: 1rem; }
 
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
+    .field { display: flex; flex-direction: column; gap: 0.35rem; }
 
-    label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--navy);
-      letter-spacing: 0.02em;
-    }
+    label { font-size: 0.82rem; font-weight: 700; color: var(--navy); letter-spacing: 0.03em; text-transform: uppercase; }
 
     input, textarea {
       font-family: var(--font);
       font-size: 1rem;
       color: var(--text);
-      background: var(--white);
-      border: 1px solid var(--light-gray);
+      background: var(--off-white);
+      border: 1.5px solid var(--rule);
       border-radius: 5px;
-      padding: 0.75rem 0.9rem;
+      padding: 0.8rem 0.95rem;
       width: 100%;
       transition: border-color 0.2s, box-shadow 0.2s;
       -webkit-appearance: none;
-      min-height: 48px;
+      min-height: 50px;
     }
+    input:focus, textarea:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px rgba(42,143,143,0.1); background: var(--white); }
 
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--teal);
-      box-shadow: 0 0 0 3px rgba(42,143,143,0.12);
-    }
-
-    textarea { min-height: 120px; resize: vertical; }
+    textarea { min-height: 110px; resize: vertical; }
 
     .btn-submit {
       width: 100%;
@@ -520,216 +684,269 @@
       color: var(--white);
       border: none;
       border-radius: 5px;
-      padding: 0.95rem 1.5rem;
+      padding: 1rem;
       font-family: var(--font);
       font-size: 1rem;
       font-weight: 700;
-      letter-spacing: 0.02em;
       cursor: pointer;
       transition: background 0.2s;
-      min-height: 52px;
+      min-height: 54px;
     }
     .btn-submit:hover { background: var(--teal); }
 
     /* ─── Footer ────────────────────────────────────────────────── */
     footer {
-      background: var(--navy-dark);
-      color: rgba(255,255,255,0.35);
+      background: var(--navy-deeper);
+      color: rgba(255,255,255,0.3);
       text-align: center;
-      padding: 1.75rem 1.25rem;
-      font-size: 0.8rem;
+      padding: 1.75rem var(--pad);
+      font-size: 0.78rem;
+      letter-spacing: 0.02em;
     }
 
-    /* ─── Desktop Breakpoints ───────────────────────────────────── */
-    @media (min-width: 640px) {
-      :root { --section-pad: 5rem 2rem; }
+    /* ─── Desktop ───────────────────────────────────────────────── */
+    @media (min-width: 680px) {
 
-      .form-row { flex-direction: row; }
-      .form-row .form-group { flex: 1; }
+      .split {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 3.5rem;
+      }
 
-      .stats-grid { grid-template-columns: repeat(4, 1fr); }
+      .facility-image {
+        width: 300px;
+        flex-shrink: 0;
+        aspect-ratio: 3 / 4;
+      }
 
-      .about-grid {
+      .why-split {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 3.5rem;
+      }
+
+      .why-content { order: 1; }
+
+      .field-image {
+        order: 2;
+        width: 260px;
+        flex-shrink: 0;
+      }
+
+      .about-split {
         flex-direction: row;
         align-items: flex-start;
         gap: 3rem;
       }
 
-      .about-photo-placeholder {
-        flex-shrink: 0;
-        width: 220px;
-        height: 260px;
-      }
+      .about-portrait { width: 220px; }
 
-      .hero-scroll { display: flex; }
-    }
+      .stats { grid-template-columns: repeat(4, 1fr); }
 
-    @media (min-width: 900px) {
-      :root { --section-pad: 6rem 2rem; }
-
-      .hero-headline { font-size: 2.6rem; }
+      .form-row { flex-direction: row; }
+      .form-row .field { flex: 1; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ── Nav ─────────────────────────────────────────────────────── -->
+  <!-- ── Nav ──────────────────────────────────────────────────────── -->
   <nav>
-    <span class="nav-brand">Headwater Partners</span>
+    <span class="nav-brand">Headwater <span>Partners</span></span>
     <a href="#contact" class="nav-cta">Get in Touch</a>
   </nav>
 
 
-  <!-- ── Section 1: Hero ─────────────────────────────────────────── -->
+  <!-- ── 1. HERO ──────────────────────────────────────────────────── -->
   <section id="hero">
     <div class="hero-inner">
 
-      <!-- Replace with <img src="anish.jpg" ...> once photo is ready -->
-      <div class="photo-placeholder">Anish photo<br>here</div>
+      <!--
+        REPLACE THIS DIV with a real headshot when ready:
+        <img src="images/anish-headshot.jpg" alt="Anish Tailor" class="hero-photo" />
+      -->
+      <div class="hero-photo">Photo<br>here</div>
 
-      <p class="hero-name">Anish Tailor &nbsp;·&nbsp; Headwater Partners</p>
+      <p class="hero-kicker">Anish Tailor &nbsp;·&nbsp; Headwater Partners</p>
 
       <h1 class="hero-headline">
-        I'm looking to acquire and lead<br>
-        <em>one great water treatment business</em> —<br>
+        I'm looking to acquire and lead
+        <em>one great water treatment business</em> —
         and continue what its owner built.
       </h1>
 
       <p class="hero-sub">
-        Chemical engineer. A decade in the field. Looking for the right
-        business — and the right owner — ready for the next chapter.
+        Chemical engineer. A decade in the plants. Looking for the right
+        business — and the right owner — ready for what comes next.
       </p>
 
-      <a href="#contact" class="btn-primary">Let's Talk</a>
+      <a href="#contact" class="btn">
+        Let's Talk
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
 
       <div class="hero-scroll">Scroll to learn more</div>
-
     </div>
   </section>
 
 
-  <!-- ── Section 2: What I'm Looking For ─────────────────────────── -->
-  <section id="looking">
+  <!-- ── 2. THE BUSINESS ──────────────────────────────────────────── -->
+  <section id="business">
     <div class="inner">
       <p class="eyebrow">What I'm Looking For</p>
-      <h2 class="section-title">The kind of business I want to build on.</h2>
+      <h2 class="section-title">Built over decades.<br>The kind that lasts.</h2>
 
-      <ul class="criteria-list">
-        <li>
-          <div>
-            <strong>Water treatment and water industry businesses</strong> —
-            industrial water treatment, municipal services, water infrastructure,
-            or adjacent water-industry companies.
-          </div>
-        </li>
-        <li>
-          <div>
-            <strong>Owner-operated, established, and profitable</strong> —
-            built by someone over decades, with a strong team and loyal customers
-            already in place.
-          </div>
-        </li>
-        <li>
-          <div>
-            <strong>A founder thinking about succession</strong> —
-            not a quick sale. Someone who wants their employees, customers,
-            and legacy in good hands.
-          </div>
-        </li>
-        <li>
-          <div>
-            <strong>Located anywhere in the United States</strong> —
-            geography is not a constraint. The right business is the right business.
-          </div>
-        </li>
-      </ul>
+      <div class="split">
 
-      <p class="note-line">References available on request.</p>
+        <!--
+          REPLACE THIS DIV with a real facility photo when ready:
+          <div class="facility-image">
+            <img src="images/water-facility.jpg" alt="Industrial water treatment facility" />
+          </div>
+        -->
+        <div class="facility-image"></div>
+
+        <div class="business-content">
+          <ul class="criteria">
+
+            <li>
+              <div class="criteria-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+              </div>
+              <div>
+                <strong>Water treatment or water industry</strong>
+                Industrial, municipal, infrastructure — any corner of the water industry.
+              </div>
+            </li>
+
+            <li>
+              <div class="criteria-icon">
+                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/></svg>
+              </div>
+              <div>
+                <strong>Owner-operated, established, and profitable</strong>
+                A real business built by someone who showed up — with a team and customer base to prove it.
+              </div>
+            </li>
+
+            <li>
+              <div class="criteria-icon">
+                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <strong>A founder thinking about succession</strong>
+                Not someone looking to exit quickly — someone who wants their people and customers in good hands.
+              </div>
+            </li>
+
+            <li>
+              <div class="criteria-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <div>
+                <strong>Anywhere in the United States</strong>
+                Geography is not a constraint. The right fit is the right fit.
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
 
-  <!-- ── Section 3: Why Me ────────────────────────────────────────── -->
+  <!-- ── 3. WHY ME ────────────────────────────────────────────────── -->
   <section id="why">
     <div class="inner">
       <p class="eyebrow">Why Me</p>
-      <h2 class="section-title">I'm not a financial buyer. I'm an operator.</h2>
+      <h2 class="section-title">I'm not a financial buyer.<br>I'm an operator.</h2>
 
-      <div class="pullquote">
-        <p>"I'm not a financial buyer looking for a flip. I'm an operator who spent
-        ten years in the field, and I intend to show up the same way as an owner."</p>
+      <div class="why-split">
+
+        <div class="why-content">
+
+          <div class="big-quote">
+            <p>"I'm not a financial buyer looking for a flip. I'm an operator who spent
+            ten years in the field, and I intend to show up the same way as an owner."</p>
+          </div>
+
+          <ul class="credentials">
+
+            <li>
+              <div class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div>
+                <strong>I know the work because I've done it.</strong>
+                A decade on-site at industrial facilities — diagnosing failures, optimizing chemistry,
+                working alongside the technicians who keep these systems running.
+              </div>
+            </li>
+
+            <li>
+              <div class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div>
+                <strong>I understand this industry end to end.</strong>
+                My career spanned Nalco, SUEZ, and Solenis — three of the world's largest names in
+                water treatment. I know the customers, the competitors, and the technical realities.
+              </div>
+            </li>
+
+            <li>
+              <div class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div>
+                <strong>I'm here for the long run.</strong>
+                The employees, the customer relationships, and the reputation the owner built —
+                those are what I'm acquiring. Not just the cash flow.
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <!--
+          REPLACE THIS DIV with a real field photo when ready:
+          <div class="field-image">
+            <img src="images/operator-field.jpg" alt="Anish Tailor in the field" />
+          </div>
+        -->
+        <div class="field-image"></div>
+
       </div>
-
-      <ul class="why-points">
-
-        <li>
-          <div class="why-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-          </div>
-          <div>
-            <p>I'm a chemical engineer who worked in water treatment for ten years — in the plants, solving the actual problems. I understand this work because I've done this work.</p>
-          </div>
-        </li>
-
-        <li>
-          <div class="why-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <div>
-            <p>I worked at Nalco, SUEZ, and Solenis — three of the largest water treatment companies in the world. I know this industry inside and out, and I know the people in it.</p>
-          </div>
-        </li>
-
-        <li>
-          <div class="why-icon">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <div>
-            <p>I'm committed to the people and the business — not a quick exit. The employees, the customers, and the reputation the owner built are what I'm here to continue.</p>
-          </div>
-        </li>
-
-        <li>
-          <div class="why-icon">
-            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <div>
-            <p>I can speak your language — the chemistry, the equipment, the customer relationships, the operational realities. There won't be a learning curve on day one.</p>
-          </div>
-        </li>
-
-      </ul>
     </div>
   </section>
 
 
-  <!-- ── Section 4: About Me ──────────────────────────────────────── -->
+  <!-- ── 4. ABOUT ──────────────────────────────────────────────────── -->
   <section id="about">
     <div class="inner">
       <p class="eyebrow">About Anish</p>
-      <h2 class="section-title">A decade in water treatment. Now building what's next.</h2>
+      <h2 class="section-title light">The background<br>behind the search.</h2>
 
-      <div class="about-grid">
+      <div class="about-split">
 
-        <!-- Replace with real photo once available -->
-        <div class="about-photo-placeholder">Anish photo<br>here</div>
+        <!--
+          REPLACE THIS DIV with a real portrait when ready:
+          <div class="about-portrait">
+            <img src="images/anish-about.jpg" alt="Anish Tailor" />
+          </div>
+        -->
+        <div class="about-portrait">Portrait<br>photo<br>here</div>
 
         <div class="about-text">
           <p>
-            I'm a chemical engineer. I spent the last decade working directly in
-            industrial water treatment — not in a boardroom, but in the field,
-            alongside the technicians and operators who keep these systems running.
+            I'm a chemical engineer from the University of Illinois.
+            For the past decade I worked in industrial water treatment — not as a consultant,
+            but embedded in the facilities themselves, solving problems in real time.
           </p>
           <p>
-            My career took me across the country — from Houston refineries to
-            California manufacturers to industrial facilities in the Pacific Northwest —
-            working with the full range of water treatment challenges that plant operators
-            face every day.
+            That career took me from oil refineries in Houston to food and beverage plants in
+            California to manufacturing facilities across the Pacific Northwest. I've seen how
+            these businesses run from the inside — the equipment, the chemistry, the people,
+            and the customer trust it takes to keep a contract for twenty years.
           </p>
           <p>
-            Now I'm focused on finding the right company: a well-run water treatment
-            business whose owner has built something real, and wants to see it continue
-            under someone who understands and respects what they've built.
+            Now I'm looking for the right company to step into as owner and operator.
+            Not to strip down and sell — to run and grow.
           </p>
 
           <div class="employers">
@@ -738,7 +955,7 @@
             <span class="employer-tag">Solenis</span>
           </div>
 
-          <p class="references-line">References available on request.</p>
+          <p class="ref-note">References available on request.</p>
         </div>
 
       </div>
@@ -746,102 +963,102 @@
   </section>
 
 
-  <!-- ── Section 5: By the Numbers ───────────────────────────────── -->
+  <!-- ── 5. NUMBERS ───────────────────────────────────────────────── -->
   <section id="numbers">
-    <div class="stats-grid">
+    <div class="stats">
+
       <div class="stat">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
         <div class="stat-number">10+</div>
         <div class="stat-label">Years in industrial water treatment</div>
       </div>
+
       <div class="stat">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
         <div class="stat-number">3</div>
         <div class="stat-label">Of the world's largest water treatment companies</div>
       </div>
+
       <div class="stat">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
         <div class="stat-number">B.S.</div>
         <div class="stat-label">Chemical Engineering — University of Illinois</div>
       </div>
+
       <div class="stat">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
         <div class="stat-number">150+</div>
         <div class="stat-label">Industrial relationships across the Western US</div>
       </div>
+
     </div>
   </section>
 
 
-  <!-- ── Section 6: Contact ───────────────────────────────────────── -->
+  <!-- ── 6. CONTACT ───────────────────────────────────────────────── -->
   <section id="contact">
     <div class="inner">
-      <p class="eyebrow">Get in Touch</p>
-      <h2 class="section-title">Let's have a conversation.</h2>
+      <p class="eyebrow">Start the Conversation</p>
+      <h2 class="section-title">Let's talk.</h2>
 
       <p class="contact-invite">
-        "If you know a business owner thinking about their next chapter — or if
-        that's you — I'd genuinely welcome the conversation."
+        "If you know a business owner thinking about their next chapter — or if that's
+        you — I'd genuinely welcome the conversation."
       </p>
 
-      <p class="contact-intro">
+      <p class="contact-note">
         Reach out however is easiest. A 20-minute call is all it takes to see
         if there's something worth exploring.
       </p>
 
-      <!-- Direct contact — tap-to-call and tap-to-email for mobile -->
-      <div class="contact-direct">
-
-        <a href="tel:[PHONE]" class="contact-link">
-          <svg viewBox="0 0 24 24">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
+      <div class="direct-links">
+        <a href="tel:[PHONE]" class="direct-link">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           [PHONE]
         </a>
-
-        <a href="mailto:[EMAIL]" class="contact-link">
-          <svg viewBox="0 0 24 24">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-            <polyline points="22,6 12,13 2,6"/>
-          </svg>
+        <a href="mailto:[EMAIL]" class="direct-link">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           [EMAIL]
         </a>
-
       </div>
 
-      <div class="or-divider">or send a message below</div>
+      <div class="divider">or send a message</div>
 
-      <!-- Contact form — wire to Formspree or Netlify Forms when deploying -->
-      <form
-        class="contact-form"
-        action="https://formspree.io/f/[FORMSPREE_ID]"
-        method="POST"
-      >
+      <!-- Wire to Formspree: sign up at formspree.io → replace [FORMSPREE_ID] -->
+      <form class="form" action="https://formspree.io/f/[FORMSPREE_ID]" method="POST">
+
         <div class="form-row">
-          <div class="form-group">
+          <div class="field">
             <label for="name">Your Name</label>
             <input type="text" id="name" name="name" placeholder="John Smith" required />
           </div>
-          <div class="form-group">
+          <div class="field">
             <label for="email">Your Email</label>
             <input type="email" id="email" name="email" placeholder="john@example.com" required />
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="field">
           <label for="phone">Phone (optional)</label>
           <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" />
         </div>
 
-        <div class="form-group">
+        <div class="field">
           <label for="message">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            placeholder="Tell me a little about your business or how we might connect..."
-            required
-          ></textarea>
+          <textarea id="message" name="message" placeholder="Tell me a little about your business, or how we might be connected..." required></textarea>
         </div>
 
         <button type="submit" class="btn-submit">Send Message</button>
-      </form>
 
+      </form>
     </div>
   </section>
 
